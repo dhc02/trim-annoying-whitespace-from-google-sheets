@@ -1,6 +1,14 @@
 /** @OnlyCurrentDoc */
 
-function TrimWhitespace() {
+function onOpen(e) {
+  SpreadsheetApp.getUi().createAddonMenu().addItem('Trim Annoying Whitespace', 'trimWhitespace').addToUi();
+}
+
+function onInstall(e) {
+  onOpen(e);
+}
+
+function trimWhitespace() {
   var spreadsheet = SpreadsheetApp.getActive();
   var sheet = spreadsheet.getActiveSheet();
   var selection = sheet.getSelection();
